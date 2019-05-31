@@ -1,1 +1,1 @@
-# stralgoritms
+# stralgoritрms
