@@ -1,6 +1,7 @@
 package lesson_3;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
@@ -47,5 +48,18 @@ public class Main {
         System.out.println(myDeque);
         myDeque.removeLeft();
         System.out.println(myDeque);
+
+        MyPriorityQueue<Integer>mpq=new MyPriorityQueue<>();
+        mpq.insert(5);
+        System.out.println(mpq);
+        mpq.insert(3);
+        System.out.println(mpq);
+        mpq.insert(1);
+        System.out.println(mpq);
+        mpq.insert(8);
+        System.out.println(mpq);
+        mpq.remove();
+        System.out.println(mpq);
+        Stack st=new Stack();
     }
 }
