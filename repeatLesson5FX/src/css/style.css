@@ -1,0 +1,14 @@
+.scroll-pane.scroll-bar:horizontal{
+    -fx-pref-height:20;
+    -fx-font-size:20px;
+}
+.scroll-pane.scroll-bar:vertical{
+    -fx-pref-width:20;
+    -fx-font-size:20px;
+}
+.menu:hover{
+    -fx-font-size: 25;
+}
+.root{
+    -fx-background-color: orange;
+}

@@ -1,0 +1,16 @@
+.button {
+    -fx-font-size: 20;
+}
+#btnClear{
+    -fx-background-color: red;
+    -fx-text-fill: yellow;
+}
+.button:hover{
+   -fx-font-size: 25;
+}
+.text-field{
+    -fx-font-size: 20;
+}
+.root{
+    -fx-background-color: orange;
+}
