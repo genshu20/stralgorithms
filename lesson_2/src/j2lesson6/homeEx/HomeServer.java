@@ -38,7 +38,7 @@ public class HomeServer {
                         System.out.println("client is disconnect");
                         break;
                     }
-                    System.out.println(str);
+                    System.out.println("client: "+str);
                 }else break;
             }
 

@@ -38,7 +38,7 @@ public class Client {
                     System.out.println("server is disconnect");
                     break;
                 }
-                System.out.println(str);
+                System.out.println("server: "+str);
                 }else break;
             }
         } catch (IOException e) {
