@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?scenebuilder-stylesheet /css/style?>
+
+<!--<GridPane fx:controller="sample.Controller"-->
+<!--          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">-->
+<!--    <Label text="t1" GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>-->
+<!--    <Label text="t2" GridPane.columnIndex="1" GridPane.rowIndex="0"></Label>-->
+<!--    <Button text="btn1" onMouseClicked="#onMouseClickedbtn" GridPane.columnIndex="2" GridPane.rowIndex="0" />-->
+<!--    <Button text="btn2" onAction="#onActiondbtn" GridPane.columnIndex="3" GridPane.rowIndex="0" />-->
+<!--    <TextField fx:id="textField" onAction="#onActionTextfield" GridPane.columnIndex="0" GridPane.rowIndex="1" />-->
+<!--    <TextArea fx:id="textArea" prefWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="1" />-->
+<!--</GridPane>-->
+<!--<VBox fx:controller="sample.Controller"-->
+<!--      xmlns:fx="http://javafx.com/fxml" alignment="center">-->
+<!--<Label text="t1"></Label>-->
+<!--<Label text="t2" ></Label>-->
+<!--    <HBox>-->
+<!--<Button text="btn1" onMouseClicked="#onMouseClickedbtn" />-->
+<!--<Button text="btn2" onAction="#onActiondbtn"  />-->
+<!--    </HBox>-->
+<!--<TextField fx:id="textField" onAction="#onActionTextfield"  />-->
+<!--<TextArea fx:id="textArea" prefWidth="100" VBox.vgrow="ALWAYS" />-->
+<!--</VBox>-->
+<!--<BorderPane fx:controller="sample.Controller"-->
+<!--            xmlns:fx="http://javafx.com/fxml">-->
+<!--    <center>-->
+<!--        <TextArea fx:id="textArea" prefWidth="100" />-->
+<!--    </center>-->
+<!--    <top>-->
+<!--<Label text="t1"></Label>-->
+<!--    </top>-->
+<!--    <bottom>-->
+<!--        <HBox>-->
+<!--        <Button text="btn2" onAction="#onActiondbtn"  />-->
+<!--        <TextField fx:id="textField" HBox.hgrow="ALWAYS" onAction="#onActionTextfield"  />-->
+<!--        </HBox>-->
+<!--    </bottom>-->
+<!--    <right>-->
+<!--    <Button text="btn1" onMouseClicked="#onMouseClickedbtn" />-->
+<!--    </right>-->
+<!--    <left>-->
+<!--        <Label text="t2" ></Label>-->
+<!--    </left>-->
+<!--</BorderPane>-->
+
+<?import java.net.URL?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Controller">
+
+    <stylesheets>
+        <URL value="@/css/style.css"/>
+    </stylesheets>
+
+   <children>
+      <MenuBar layoutX="52.0" layoutY="42.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                <MenuItem mnemonicParsing="false" text="Open" />
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Slider fx:id="slider" onMouseReleased="#tuning" layoutX="13.0" layoutY="129.0" min="6.0" showTickLabels="true" showTickMarks="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="100.0" />
+      <ColorPicker fx:id="colorPicker" onMouseReleased="#tuning" layoutY="169.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="150.0" />
+      <CheckBox fx:id="checkBoxItalic" onMouseReleased="#tuning" layoutY="200.0" mnemonicParsing="false" text="Italic" AnchorPane.leftAnchor="15.0">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="checkBoxBold" onMouseReleased="#tuning" layoutY="241.0" mnemonicParsing="false" text="Bold" AnchorPane.leftAnchor="15.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </CheckBox>
+      <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>
