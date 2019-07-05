@@ -52,6 +52,10 @@ public class Controller implements Initializable {
                     try {
                     while (true){
                             String str=in.readUTF();
+                            if(str.equals("/end")){
+                                System.out.println("client is disconnect");
+                                break;
+                            }
                             textArea.appendText(str+"\n");
                         }
                     } catch (IOException e) {

@@ -18,13 +18,12 @@ public class ClientHandler {
         in=new DataInputStream(socket.getInputStream());
         out=new DataOutputStream(socket.getOutputStream());
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        new Thread(()-> {
                 try {
                     while (true) {
                         String str = in.readUTF();
                         if (str.equals("/end")) {
+                            out.writeUTF("/end");
                             System.out.println("client is disconnect");
                             break;
                         }
@@ -49,8 +48,9 @@ public class ClientHandler {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    server.unsubscribe(this);
+                    System.out.println("client is disconnect");
                 }
-            }
         }).start();
         } catch (IOException e) {
             e.printStackTrace();
