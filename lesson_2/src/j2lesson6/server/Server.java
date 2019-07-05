@@ -6,14 +6,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.Vector;
 
 public class Server {
     Vector<ClientHandler>clients;
 
-    public Server() {
-
+    public Server() throws SQLException {
+        AuthService.connect();
+       // System.out.println(AuthService.getNickByLoginAndPass("login1","pass1"));
         ServerSocket server=null;
         Socket socket=null;
 
@@ -25,7 +27,7 @@ public class Server {
             while(true){
                 socket=server.accept();
                 System.out.println("client is connected");
-                subscribe(new ClientHandler(this,socket));
+                new ClientHandler(this,socket);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,6 +43,7 @@ public class Server {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            AuthService.disconnect();
         }
     }
     public void broadcastMsg(String str){
