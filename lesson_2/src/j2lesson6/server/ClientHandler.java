@@ -10,6 +10,8 @@ public class ClientHandler {
     private Socket socket;
     DataInputStream in;
     DataOutputStream out;
+    String nick;
+    String login;
 
     public ClientHandler(Server server, Socket socket) {
         try {
@@ -22,13 +24,42 @@ public class ClientHandler {
                 try {
                     while (true) {
                         String str = in.readUTF();
+                        if(str.startsWith("/auth")){
+                            String[]token=str.split(" ");
+                            for(ClientHandler o:server.clients){
+                                if(o.login.equals(token[1])){
+                                    sendMsg("wrong login/password");
+                                    return;
+                                }
+                            }
+                            String newNick=AuthService.getNickByLoginAndPass(token[1],token[2]);
+                            if (newNick != null) {
+                                sendMsg("/authOk");
+                                nick=newNick;
+                                login=token[1];
+                                server.subscribe(this);
+                                break;
+                            }else{
+                                sendMsg("wrong login/password");
+                            }
+                        }
+                    }
+                    while (true) {
+                        String str = in.readUTF();
                         if (str.equals("/end")) {
                             out.writeUTF("/end");
                             System.out.println("client is disconnect");
                             break;
                         }
-                        System.out.println(str);
-                        server.broadcastMsg(str);
+                        if(str.startsWith("/w ")){
+                            String[]token=str.split(" ");
+                            for(ClientHandler o:server.clients){
+                                if(o.nick.equals(token[1]))o.out.writeUTF(str);
+                            }
+                        }else {
+                            System.out.println(str);
+                            server.broadcastMsg(nick + ": " + str);
+                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
